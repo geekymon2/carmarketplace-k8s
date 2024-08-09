@@ -1,5 +1,6 @@
-minikube start --cpus=8 --memory=8192 --vm-driver=virtualbox
-helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+#!bin/bash
+
+#Enable addons
 minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube addons enable ingress
