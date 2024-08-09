@@ -19,6 +19,8 @@ spec:
         - name: cm-car-listing-service
           image: geekymon2/cm-car-listing-svc:latest
           env:
+          - name: ENVIRONMENT
+            value: "ci"
           - name: ARTIFACT_NAME
             value: "car-listing-service"
           - name: CARLISTING_DB_NAME

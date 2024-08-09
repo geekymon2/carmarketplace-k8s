@@ -19,6 +19,8 @@ spec:
       - name: config-server
         image: geekymon2/cm-config-server:latest
         env:
+        - name: ENVIRONMENT
+          value: "ci"
         - name: ARTIFACT_NAME
           value: "config-server"
         - name: SPRING_PROFILES_ACTIVE

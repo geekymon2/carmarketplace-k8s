@@ -26,6 +26,8 @@ spec:
               memory: "512Mi"
               cpu: "200m"
           env:
+          - name: ENVIRONMENT
+            value: "ci"
           - name: ARTIFACT_NAME
             value: "user-service"
           - name: USER_DB_NAME

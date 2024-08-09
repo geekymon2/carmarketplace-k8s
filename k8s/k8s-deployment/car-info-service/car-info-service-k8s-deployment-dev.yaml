@@ -26,6 +26,8 @@ spec:
               memory: "512Mi"
               cpu: "200m"
           env:
+          - name: ENVIRONMENT
+            value: "ci"
           - name: ARTIFACT_NAME
             value: "car-info-service"
           - name: CARINFO_DB_NAME

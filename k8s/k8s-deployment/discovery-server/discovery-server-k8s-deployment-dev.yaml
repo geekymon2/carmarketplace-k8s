@@ -19,6 +19,8 @@ spec:
       - name: discovery-server
         image: geekymon2/cm-discovery-server:latest
         env:
+        - name: ENVIRONMENT
+          value: "ci"
         - name: ARTIFACT_NAME
           value: "discovery-server"
         - name: SPRING_PROFILES_ACTIVE

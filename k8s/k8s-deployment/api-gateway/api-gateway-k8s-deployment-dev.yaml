@@ -19,6 +19,8 @@ spec:
         - name: cm-apigateway
           image: geekymon2/cm-apigateway:latest
           env:
+          - name: ENVIRONMENT
+            value: "ci"
           - name: ARTIFACT_NAME
             value: "car-apigateway"
           - name: TZ
