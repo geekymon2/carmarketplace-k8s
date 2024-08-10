@@ -8,10 +8,7 @@ helm repo update
 helm upgrade --install grafana-agent --namespace=loki grafana/grafana-agent --values grafana-agent-values.yaml
 
 #Install and configure Loki Stack
-helm upgrade --install loki --namespace=loki grafana/loki-stack --values loki-stack-values.yaml --create-namespace
+helm install loki-stack grafana/loki-stack --values loki-stack-values.yaml -n loki --create-namespace
 
 #Port forward Grafana
 kubectl port-forward svc/loki-stack-grafana 3000:80 -n loki
-
-#Get secret
-kubectl get secret loki-stack-grafana -n loki -o jsonpath="{.data.admin-password}" | base64 --decode ; echo

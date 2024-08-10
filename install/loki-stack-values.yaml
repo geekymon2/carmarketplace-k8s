@@ -5,8 +5,6 @@ promtail:
   enabled: true
 grafana:
   enabled: true
-sidecar:
-  datasources:
-    enabled: true
-image:
-  tag: 8.3.5
+  sidecar:
+    datasources:
+      enabled: true
