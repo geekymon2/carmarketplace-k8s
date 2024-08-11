@@ -4,7 +4,7 @@ metadata:
   labels:
     app: api-gateway
   name: api-gateway
-  namespace: carmarketplace-dev
+  namespace: carmarketplace-{{ .Values.environment }}
 spec:
   replicas: 2
   selector:
@@ -19,14 +19,14 @@ spec:
         - name: cm-apigateway
           image: geekymon2/cm-apigateway:latest
           env:
-          - name: ENVIRONMENT
-            value: "ci"
-          - name: ARTIFACT_NAME
-            value: "car-apigateway"
-          - name: TZ
-            value: "Australia/Sydney"
-          - name: SPRING_PROFILES_ACTIVE
-            value: "ci"
+            - name: ENVIRONMENT
+              value: { { .Values.environment } }
+            - name: ARTIFACT_NAME
+              value: "car-apigateway"
+            - name: TZ
+              value: "Australia/Sydney"
+            - name: SPRING_PROFILES_ACTIVE
+              value: { { .Values.environment } }
           resources:
             limits:
               memory: "512Mi"

@@ -7,4 +7,4 @@ if [ -z "$ENV" ]; then
     exit 1
 fi
 
-helm install -f ./values-$ENV.yaml ./k8s-namespace/carmarketplace-k8s-namespace.yaml --generate-name
+kubectl delete namespace carmarketplace-$ENV

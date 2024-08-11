@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: car-info-service
+  name: car-info-service
+  namespace: carmarketplace-{{ .Values.environment }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: car-info-service
+  template:
+    metadata:
+      labels:
+        app: car-info-service
+    spec:
+      containers:
+        - name: cm-car-info-service
+          image: geekymon2/cm-car-info-svc:latest
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "200m"
+          env:
+            - name: ENVIRONMENT
+              value: "{{ .Values.environment }}"
+            - name: ARTIFACT_NAME
+            - name: CARINFO_DB_NAME
+              value: "carinfodb{{ .Values.environment }}"
+            - name: TZ
+              value: "Australia/Sydney"
+            - name: SPRING_PROFILES_ACTIVE
+              value: "{{ .Values.environment }}"
+            - name: CARINFO_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: carinfodbpassword
+                  key: carinfodbpassword
+            - name: JWT_AUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwtauthsecret
+                  key: jwtauthsecret
