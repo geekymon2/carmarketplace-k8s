@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: kubetail
   labels:
-    name: { { .Values.environment } }
+    name: kubetail
