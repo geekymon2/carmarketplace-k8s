@@ -4,7 +4,7 @@ metadata:
   labels:
     app: user-service
   name: user-service
-  namespace: carmarketplace-ci
+  namespace: carmarketplace-$ENVIRONMENT
 spec:
   replicas: 2
   selector:
@@ -27,15 +27,15 @@ spec:
               cpu: "200m"
           env:
             - name: ENVIRONMENT
-              value: ci
+              value: $ENVIRONMENT
             - name: ARTIFACT_NAME
               value: "user-service"
             - name: USER_DB_NAME
-              value: "userdbci"
+              value: "userdb$ENVIRONMENT"
             - name: TZ
               value: "Australia/Sydney"
             - name: SPRING_PROFILES_ACTIVE
-              value: ci
+              value: $ENVIRONMENT
             - name: USER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:

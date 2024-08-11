@@ -4,7 +4,7 @@ metadata:
   labels:
     app: ui
   name: ui
-  namespace: carmarketplace-ci
+  namespace: carmarketplace-$ENVIRONMENT
 spec:
   replicas: 2
   selector:
@@ -27,6 +27,6 @@ spec:
               cpu: "200m"
           env:
             - name: ENVIRONMENT
-              value: ci
+              value: $ENVIRONMENT
             - name: TZ
               value: "Australia/Sydney"

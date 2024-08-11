@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: config-server
-  namespace: carmarketplace-dev
+  namespace: carmarketplace-$ENVIRONMENT
 spec:
   selector:
     app: config-server  

@@ -4,7 +4,7 @@ metadata:
   labels:
     app: car-info-service
   name: car-info-service
-  namespace: carmarketplace-ci
+  namespace: carmarketplace-$ENVIRONMENT
 spec:
   replicas: 2
   selector:
@@ -27,14 +27,14 @@ spec:
               cpu: "200m"
           env:
             - name: ENVIRONMENT
-              value: ci
+              value: $ENVIRONMENT
             - name: ARTIFACT_NAME
             - name: CARINFO_DB_NAME
-              value: "carinfodbci"
+              value: "carinfodb$ENVIRONMENT"
             - name: TZ
               value: "Australia/Sydney"
             - name: SPRING_PROFILES_ACTIVE
-              value: ci
+              value: $ENVIRONMENT
             - name: CARINFO_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
