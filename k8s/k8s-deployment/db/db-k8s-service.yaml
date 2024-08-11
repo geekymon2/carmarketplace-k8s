@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: db
-  namespace: carmarketplace-dev
+  namespace: carmarketplace-ci
 spec:
   type: ExternalName
-  externalName: geekymon2-desktop
+  externalName: $DB_HOST

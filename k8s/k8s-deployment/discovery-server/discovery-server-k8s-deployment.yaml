@@ -4,7 +4,7 @@ metadata:
   labels:
     app: discovery-server
   name: discovery-server
-  namespace: carmarketplace-dev
+  namespace: carmarketplace-ci
 spec:
   replicas: 2
   selector:
@@ -20,11 +20,11 @@ spec:
         image: geekymon2/cm-discovery-server:latest
         env:
         - name: ENVIRONMENT
-          value: "ci"
+          value: ci
         - name: ARTIFACT_NAME
           value: "discovery-server"
         - name: SPRING_PROFILES_ACTIVE
-          value: "ci"
+          value: ci
         - name: TZ
           value: "Australia/Sydney"
         resources:

@@ -2,31 +2,38 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: api-gateway
-  name: api-gateway
+    app: car-listing-service
+  name: car-listing-service
   namespace: carmarketplace-ci
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: api-gateway
+      app: car-listing-service
   template:
     metadata:
       labels:
-        app: api-gateway
+        app: car-listing-service
     spec:
       containers:
-        - name: cm-apigateway
-          image: geekymon2/cm-apigateway:latest
+        - name: cm-car-listing-service
+          image: geekymon2/cm-car-listing-svc:latest
           env:
             - name: ENVIRONMENT
               value: ci
             - name: ARTIFACT_NAME
-              value: "car-apigateway"
+              value: "car-listing-service"
+            - name: CARLISTING_DB_NAME
+              value: "carlistingdbci"
             - name: TZ
               value: "Australia/Sydney"
             - name: SPRING_PROFILES_ACTIVE
               value: ci
+            - name: CARLISTING_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: carlistingdbpassword
+                  key: carlistingdbpassword
           resources:
             limits:
               memory: "512Mi"
