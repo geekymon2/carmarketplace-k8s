@@ -29,6 +29,7 @@ spec:
             - name: ENVIRONMENT
               value: $ENVIRONMENT
             - name: ARTIFACT_NAME
+              value: "car-info-service"
             - name: CARINFO_DB_NAME
               value: "carinfodb$ENVIRONMENT"
             - name: TZ
