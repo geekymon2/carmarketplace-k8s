@@ -4,7 +4,7 @@ This repo contains the K8s config for deployment of the app into a K8s environme
 
 ## Prerequisites
 
-- Ensure that a K8s environment is setup.
+- Ensure that K8s cluster is running.
 - Follow the local minikube setup guide for setting up in local machine.
 
 ## Additional Minikube Add Ons
@@ -14,3 +14,4 @@ This repo contains the K8s config for deployment of the app into a K8s environme
 - Metrics Server
 - Ingress
 - Ingress Dns
+- Kubetail

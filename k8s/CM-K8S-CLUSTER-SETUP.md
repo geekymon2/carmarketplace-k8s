@@ -1,17 +1,19 @@
-# K8S LINUX SETUP
+# K8S SETUP FOR CARMARKETPLACE
 
-This document details the setup and deployment instructions for running the application in a local kubernetes cluster in a linux environment.
-You can run these commands as is from the current folder where this readme doc is stored.
+This document details the setup and deployment instructions for running the application in a local kubernetes cluster.
 
 ## Setup the application on Kubernetes
 
-### Create Secrets
+### Execute Deployment Scripts
 
-./create-secrets.sh
+- ./00-deploy-namespace.sh <environment>
+- ./01-create-secrets.sg <environment>
+- ./02-deploy-app.sh <environment> <dbhost>
 
-### Deploy
+### Setup kubetail (one time setup only)
 
-./deploy.sh
+- ./90-deploy-namespace-kubetail.sh
+- ./91-deploy-kubetail.sh
 
 ### Access Dashboard
 
@@ -19,8 +21,4 @@ You can run these commands as is from the current folder where this readme doc i
 
 ### Access Logs
 
-- http://minikube:32000/?namespace=carmarketplace-dev
-
-### Check NGINX configuration
-
-kubectl exec ingress-nginx-controller-xxxxxxxxxxx -n ingress-nginx -- cat /etc/nginx/nginx.conf
+- http://localhost:8001/api/v1/namespaces/kubetail/services/kubetail:80/proxy/
