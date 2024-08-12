@@ -5,6 +5,10 @@
 - kubectl cluster-info: Get Cluster Info
 - kubectl version: Get Version
 
+## Switch namespace
+
+- kubectl config set-context --current --namespace=<namespace>
+
 ## Create, Apply and Delete Resources
 
 - kubectl create -f FILENAME: Create a resource from a file
@@ -21,10 +25,15 @@
 ## Get Status
 
 - kubectl get pods
+- kubectl get pods -n <namespace>
 
 ## Get Logs
 
 - kubectl logs <podname>
+
+## Execute Commands in a Pod
+
+- kubectl exec -it <podname> -- /bin/bash
 
 ## Create Secrets
 
