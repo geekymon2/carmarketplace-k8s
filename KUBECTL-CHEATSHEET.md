@@ -34,6 +34,8 @@
 ## Execute Commands in a Pod
 
 - kubectl exec -it <podname> -- /bin/bash
+- kubectl exec -it car-info-service -- /bin/bash
+- kubectl exec -it car-info-service -- /bin/bash -n carmarketplace-dev
 
 ## Create Secrets
 
