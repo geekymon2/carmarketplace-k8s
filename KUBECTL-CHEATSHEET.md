@@ -30,12 +30,14 @@
 ## Get Logs
 
 - kubectl logs <podname>
+- kubectl logs <podname> -n <namespace>
+- kubectl logs <podname> -n <namespace> --follow
 
 ## Execute Commands in a Pod
 
 - kubectl exec -it <podname> -- /bin/bash
 - kubectl exec -it car-info-service -- /bin/bash
-- kubectl exec -it car-info-service -- /bin/bash -n carmarketplace-dev
+- kubectl exec -it car-info-service -n carmarketplace-dev -- /bin/bash
 
 ## Create Secrets
 
