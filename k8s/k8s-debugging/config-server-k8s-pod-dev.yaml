@@ -15,10 +15,12 @@ spec:
           memory: "512Mi"
           cpu: "200m"
       env:
+        - name: ENVIRONMENT
+          value: dev
         - name: ARTIFACT_NAME
           value: "config-server"
         - name: SPRING_PROFILES_ACTIVE
-          value: "ci"
+          value: dev
         - name: TZ
           value: "Australia/Sydney"
         - name: CONFIG_SERVER_ENCRYPT_KEY

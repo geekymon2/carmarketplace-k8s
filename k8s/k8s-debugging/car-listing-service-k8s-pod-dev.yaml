@@ -20,14 +20,21 @@ spec:
           memory: "512Mi"
           cpu: "200m"
       env:
+        - name: ENVIRONMENT
+          value: dev
         - name: ARTIFACT_NAME
           value: "car-listing-service"
         - name: CARLISTING_DB_NAME
-          value: "carlistingdbci"
+          value: "carlistingdbdev"
         - name: TZ
           value: "Australia/Sydney"
         - name: SPRING_PROFILES_ACTIVE
-          value: "ci"     
+          value: dev
+        - name: CARLISTING_DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: carlistingdbuser
+              key: carlistingdbuser
         - name: CARLISTING_DB_PASSWORD
           valueFrom:
             secretKeyRef:

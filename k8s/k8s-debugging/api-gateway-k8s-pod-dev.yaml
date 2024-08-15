@@ -20,9 +20,11 @@ spec:
           memory: "512Mi"
           cpu: "200m"
       env:
+        - name: ENVIRONMENT
+          value: dev
         - name: ARTIFACT_NAME
           value: "car-apigateway"
         - name: TZ
           value: "Australia/Sydney"
         - name: SPRING_PROFILES_ACTIVE
-          value: "ci"
+          value: dev

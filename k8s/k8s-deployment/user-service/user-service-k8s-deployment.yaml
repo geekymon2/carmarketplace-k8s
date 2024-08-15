@@ -36,6 +36,11 @@ spec:
               value: "Australia/Sydney"
             - name: SPRING_PROFILES_ACTIVE
               value: $ENVIRONMENT
+            - name: USER_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: userdbuser
+                  key: userdbpuser
             - name: USER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:

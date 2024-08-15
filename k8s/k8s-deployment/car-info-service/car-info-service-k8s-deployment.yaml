@@ -36,6 +36,11 @@ spec:
               value: "Australia/Sydney"
             - name: SPRING_PROFILES_ACTIVE
               value: $ENVIRONMENT
+            - name: CARINFO_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: carinfodbuser
+                  key: carinfodbuser
             - name: CARINFO_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
