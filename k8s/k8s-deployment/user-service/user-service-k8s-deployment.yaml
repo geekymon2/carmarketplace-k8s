@@ -40,7 +40,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: userdbuser
-                  key: userdbpuser
+                  key: userdbuser
             - name: USER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
