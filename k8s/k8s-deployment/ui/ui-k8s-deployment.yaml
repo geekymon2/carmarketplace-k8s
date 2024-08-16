@@ -30,3 +30,10 @@ spec:
               value: $ENVIRONMENT
             - name: TZ
               value: "Australia/Sydney"
+            - name: SPRING_PROFILES_ACTIVE
+              value: $ENVIRONMENT
+            - name: UI_URL
+              value: $UI_URL
+            - name: UI_PORT
+              value: $UI_PORT
+          command: ["/bin/sh", "-c", "/app/generate-config.sh"]
