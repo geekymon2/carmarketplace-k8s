@@ -1,0 +1,33 @@
+# For troubleshooting only
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ui
+  namespace: carmarketplace-dev
+spec:
+  restartPolicy: Never
+  containers:
+    - name: cm-ui
+      image: geekymon2/cm-ui
+      resources:
+        requests:
+          memory: "256Mi"
+          cpu: "100m"
+        limits:
+          memory: "512Mi"
+          cpu: "200m"
+      env:
+        - name: ENVIRONMENT
+          value: "dev"
+        - name: TZ
+          value: "Australia/Sydney"
+        - name: SPRING_PROFILES_ACTIVE
+          value: "dev"
+        - name: UI_HOST
+          value: "minikube"
+        - name: UI_PORT
+          value: "30420"
+      lifecycle:
+        postStart:
+          exec:
+            command: ["/bin/sh", "-c", "/app/generate-config.sh"]
