@@ -18,11 +18,11 @@ kubectl delete secret carlistingdbpassword --namespace carmarketplace-$ENV
 kubectl delete secret userdbpassword --namespace carmarketplace-$ENV
 kubectl delete secret jwtauthsecret --namespace carmarketplace-$ENV
 
-kubectl create secret generic encryptkeysecret --namespace carmarketplace-$ENV --from-literal encryptkeysecret=[ENCRYPT_KEY_SECRET]
-kubectl create secret generic carinfodbuser --namespace carmarketplace-$ENV --from-literal carinfodbuser=[CARINFO_DB_USER]
-kubectl create secret generic carlistingdbuser --namespace carmarketplace-$ENV --from-literal carlistingdbuser=[CARLISTING_DB_USER]
-kubectl create secret generic userdbuser --namespace carmarketplace-$ENV --from-literal userdbuser=[USER_DB_USER]
-kubectl create secret generic carinfodbpassword --namespace carmarketplace-$ENV --from-literal carinfodbpassword=[CARINFO_DB_PASSWORD]
-kubectl create secret generic carlistingdbpassword --namespace carmarketplace-$ENV --from-literal carlistingdbpassword=[CARLISTING_DB_PASSWORD]
-kubectl create secret generic userdbpassword --namespace carmarketplace-$ENV --from-literal userdbpassword=[USER_DB_PASSWORD]
-kubectl create secret generic jwtauthsecret --namespace carmarketplace-$ENV --from-literal jwtauthsecret=[JWT_AUTH_SECRET]
+kubectl create secret generic encryptkeysecret --namespace carmarketplace-$ENV --from-literal encryptkeysecret=$ENCRYPT_KEY_SECRET
+kubectl create secret generic carinfodbuser --namespace carmarketplace-$ENV --from-literal carinfodbuser=$DB_USER
+kubectl create secret generic carlistingdbuser --namespace carmarketplace-$ENV --from-literal carlistingdbuser=$DB_USER
+kubectl create secret generic userdbuser --namespace carmarketplace-$ENV --from-literal userdbuser=$DB_USER
+kubectl create secret generic carinfodbpassword --namespace carmarketplace-$ENV --from-literal carinfodbpassword=$DB_PASSWORD
+kubectl create secret generic carlistingdbpassword --namespace carmarketplace-$ENV --from-literal carlistingdbpassword=$DB_PASSWORD
+kubectl create secret generic userdbpassword --namespace carmarketplace-$ENV --from-literal userdbpassword=$DB_PASSWORD
+kubectl create secret generic jwtauthsecret --namespace carmarketplace-$ENV --from-literal jwtauthsecret=$JWT_AUTH_SECRET

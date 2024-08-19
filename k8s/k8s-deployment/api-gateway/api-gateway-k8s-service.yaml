@@ -11,4 +11,4 @@ spec:
     - name: http
       protocol: TCP
       port: 8008
-      nodePort: $GATEWAY_PORT
+      nodePort: $API_PORT

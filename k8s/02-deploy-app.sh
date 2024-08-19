@@ -1,38 +1,19 @@
 #!/bin/bash
 ENV=$1
-HOST=$2
+DBHOST=$2
 UIPORT=$3
-GATEWAYPORT=$4
-UIHOST=$5
+APIHOST=$5
+APIPORT=$4
+
 
 # Check mandatory parameter
-if [ -z "$ENV" ]; then
-    echo "Usage: ./<script> <environment> <dbhost> <uiport> <gatewayport> <uihost>"
-    exit 1
-fi
-
-if [ -z "$HOST" ]; then
-    echo "Usage: ./<script> <environment> <dbhost> <uiport> <gatewayport> <uihost>"
-    exit 1
-fi
-
-if [ -z "$UIPORT" ]; then
-    echo "Usage: ./<script> <environment> <dbhost> <uiport> <gatewayport> <uihost>"
-    exit 1
-fi
-
-if [ -z "$GATEWAYPORT" ]; then
-    echo "Usage: ./<script> <environment> <dbhost> <uiport> <gatewayport> <uihost>"
-    exit 1
-fi
-
-if [ -z "$UIHOST" ]; then
-    echo "Usage: ./<script> <environment> <dbhost> <uiport> <gatewayport> <uihost>"
+if [[ -z "$ENV" || -z "$DBHOST" || -z "$UIPORT" || -z "$APIHOST" || -z "$APIPORT" ]]; then
+    echo "Usage: ./<script> <env> <dbhost> <uiport> <apihost> <apiport>"
     exit 1
 fi
 
 find ./k8s-deployment/ -type f -print0 | while read -d $'\0' file
 do
     echo "$file"
-    sed -e "s/\$ENVIRONMENT/$ENV/" -e "s/\$DB_HOST/$HOST/" -e "s/\$UI_PORT/$UIPORT/" -e "s/\$GATEWAY_PORT/$GATEWAYPORT/" -e "s/\$UI_HOST/$UIHOST/" $file | kubectl apply -f -
+    sed -e "s/\$ENVIRONMENT/$ENV/" -e "s/\$DB_HOST/$DBHOST/" -e "s/\$UI_PORT/$UIPORT/" -e "s/\$API_PORT/$APIPORT/" -e "s/\$API_HOST/$APIHOST/" $file | kubectl apply -f -
 done

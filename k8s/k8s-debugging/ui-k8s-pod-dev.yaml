@@ -23,9 +23,9 @@ spec:
           value: "Australia/Sydney"
         - name: SPRING_PROFILES_ACTIVE
           value: "dev"
-        - name: UI_HOST
+        - name: API_HOST
           value: "minikube"
-        - name: UI_PORT
+        - name: API_PORT
           value: "30420"
       lifecycle:
         postStart:

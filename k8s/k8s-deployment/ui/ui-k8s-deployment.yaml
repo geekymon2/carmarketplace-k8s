@@ -32,10 +32,10 @@ spec:
               value: "Australia/Sydney"
             - name: SPRING_PROFILES_ACTIVE
               value: "$ENVIRONMENT"
-            - name: UI_HOST
-              value: "$UI_HOST"
-            - name: UI_PORT
-              value: "$UI_PORT"
+            - name: API_HOST
+              value: "$API_HOST"
+            - name: API_PORT
+              value: "$API_PORT"
           lifecycle:
             postStart:
               exec:
